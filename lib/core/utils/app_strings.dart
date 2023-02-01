@@ -3,8 +3,11 @@ class AppStrings {
   static const String fontFamily = 'Tajawal';
   static const String cashedQuote = 'CASHED_QUOTE';
 
+  static const String contentType = 'Content-Type';
+  static const String applicationJson = 'application/json';
+
   //Failure Message
   static const String serverFailure = 'Server Failure';
   static const String casheFailure = 'Cashe Failure';
-    static const String unexpectedFailure = 'Unexpected Failure';
+  static const String unexpectedFailure = 'Unexpected Failure';
 }

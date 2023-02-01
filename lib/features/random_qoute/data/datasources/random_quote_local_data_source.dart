@@ -17,7 +17,9 @@ class RandomQuoteLocalDataSourceImpl implements RandomQuoteLocalDataSource {
   @override
   Future<void> casheQuote(QuoteModel quoteModel) {
     return sharedPreferences.setString(
-        AppStrings.cashedQuote, json.encode(quoteModel));
+      AppStrings.cashedQuote,
+      json.encode(quoteModel),
+    );
   }
 
   @override
@@ -27,7 +29,7 @@ class RandomQuoteLocalDataSourceImpl implements RandomQuoteLocalDataSource {
       final quote = Future.value(QuoteModel.fromJson(json.decode(jsonString)));
       return quote;
     } else {
-      throw CasheException();
+      throw CacheException();
     }
   }
 }

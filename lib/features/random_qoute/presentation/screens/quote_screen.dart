@@ -44,47 +44,48 @@ class _QuoteScreenState extends State<QuoteScreen> {
             return const Text('Error');
           } else if (state is RandomQuoteLoadedSuccess) {
             return Scaffold(
-                appBar: AppBar(
-                  title: const Text(AppStrings.appTitle),
-                ),
-                body: Center(
-                  child: CustomRefreshIndicator(
-                    builder: MaterialIndicatorDelegate(
-                      builder: (context, controller) {
-                        return  Icon(
-                          Icons.replay,
-                          color: AppColors.primaryColor,
-                          size: 30.sp,
-                        );
-                      },
-                    ),
-                    onRefresh: () => _getRandomQuote(),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          QuoteBox(
-                            quote: state.quote,
+              appBar: AppBar(
+                title: const Text(AppStrings.appTitle),
+              ),
+              body: Center(
+                child: CustomRefreshIndicator(
+                  builder: MaterialIndicatorDelegate(
+                    builder: (context, controller) {
+                      return Icon(
+                        Icons.replay,
+                        color: AppColors.primaryColor,
+                        size: 30.sp,
+                      );
+                    },
+                  ),
+                  onRefresh: () => _getRandomQuote(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        QuoteBox(
+                          quote: state.quote,
+                        ),
+                        Container(
+                          height: 40.h,
+                          width: 40.h,
+                          decoration: BoxDecoration(
+                            color: AppColors.primaryColor,
+                            shape: BoxShape.circle,
                           ),
-                          Container(
-                            height: 40.h,
-                            width: 40.h,
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryColor,
-                              shape: BoxShape.circle,
+                          child: InkWell(
+                            onTap: () => _getRandomQuote(),
+                            child: const Icon(
+                              Icons.replay_outlined,
+                              color: Colors.white,
                             ),
-                            child: InkWell(
-                              onTap: () => _getRandomQuote(),
-                              child: const Icon(
-                                Icons.replay_outlined,
-                                color: Colors.white,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                ));
+                ),
+              ),
+            );
           } else {
             return SpinKitFadingCircle(
               itemBuilder: (BuildContext context, int index) {
