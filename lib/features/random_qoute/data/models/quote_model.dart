@@ -11,15 +11,13 @@ QuoteModel quoteFromJson(String str) => QuoteModel.fromJson(json.decode(str));
 String quoteToJson(QuoteModel data) => json.encode(data.toJson());
 
 class QuoteModel extends Quote{
-    QuoteModel({
-        required this.id,
-        required this.author,
-        required this.content,
+   const QuoteModel({
+        required String id,
+        required String author,
+        required String content,
     }) : super(author: author, id: id, content: content,);
 
-    String id;
-    String author;
-    String content;
+
 
     factory QuoteModel.fromJson(Map<String, dynamic> json) => QuoteModel(
         id: json["_id"],
