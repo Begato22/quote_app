@@ -44,4 +44,4 @@ class NoInternetConnectionException extends ServerException {
       : super("No Internet Connection");
 }
 
-class CacheException implements Exception {}
+class CasheException implements Exception {}

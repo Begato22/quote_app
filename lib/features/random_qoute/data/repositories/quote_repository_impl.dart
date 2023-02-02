@@ -33,8 +33,8 @@ class QuoteRepositoryImpl implements QuoteRepository {
         final localRandomQuote =
             await randomQuoteLocalDataSource.getLastQuote();
         return Right(localRandomQuote);
-      } on ServerException {
-        return Left(ServerFailure());
+      } on CasheException {
+        return Left(CashFailure());
       }
     }
   }

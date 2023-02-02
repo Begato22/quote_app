@@ -10,4 +10,10 @@ class AppStrings {
   static const String serverFailure = 'Server Failure';
   static const String casheFailure = 'Cashe Failure';
   static const String unexpectedFailure = 'Unexpected Failure';
+
+  //Localization
+  static const String englishCode = 'en';
+  static const String arabicCode = 'ar';
+  static const String locale = 'locale';
+
 }

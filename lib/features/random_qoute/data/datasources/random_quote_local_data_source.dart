@@ -29,7 +29,7 @@ class RandomQuoteLocalDataSourceImpl implements RandomQuoteLocalDataSource {
       final quote = Future.value(QuoteModel.fromJson(json.decode(jsonString)));
       return quote;
     } else {
-      throw CacheException();
+      throw CasheException();
     }
   }
 }
